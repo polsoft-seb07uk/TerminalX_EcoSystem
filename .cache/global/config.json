@@ -1,0 +1,16 @@
+{
+  "prompt.symbol": "> ",
+  "prompt.color": "yellow",
+  "display.color": true,
+  "display.unicode": true,
+  "display.compact": false,
+  "history.enabled": true,
+  "history.max": 500,
+  "on_startup.show_help": false,
+  "on_startup.clear": false,
+  "error.verbose": false,
+  "confirm.rm": true,
+  "confirm.trash_empty": true,
+  "defender.enabled": true,
+  "cache.max_entries": 1000
+}

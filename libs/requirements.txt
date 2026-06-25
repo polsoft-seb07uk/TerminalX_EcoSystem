@@ -1,0 +1,134 @@
+# ============================================================================
+#  TerminalX EcoSystem — requirements.txt
+#  polsoft.ITS™  |  Author: Sebastian Januchowski
+# ============================================================================
+#
+#  Uruchom:  install libs
+#            lub: pip install -r libs/requirements.txt
+#
+#  Sekcje:
+#    [A] Wymagania środowiskowe (informacyjnie — nie instalowane przez pip)
+#    [B] Wymagane zależności pip (aktywowane — instalowane przez `install libs`)
+#    [C] Opcjonalne rozszerzenia pip (zakomentowane — odblokuj ręcznie)
+#    [D] Narzędzia developerskie / build (zakomentowane)
+#
+# ============================================================================
+
+
+# ── [A] WYMAGANIA ŚRODOWISKOWE ───────────────────────────────────────────────
+#
+#  Python     >= 3.10  (wymagane: match/case, X | Y typing, str | None itp.)
+#             >= 3.11  (zalecane: szybszy startup, lepsze tracebacki)
+#  OS         Windows 10/11, Windows Server 2016+
+#             Linux / macOS (core działa; niektóre komendy Windows-only)
+#
+#  Narzędzia zewnętrzne (wywoływane przez subprocess — nie pip):
+#    ping      — wbudowany w Windows/Linux/macOS  (core/net.py)
+#    npm       — Node.js >=16  (opcjonalny, core/pkg.py: pkg install npm <x>)
+#    node      — Node.js >=16  (opcjonalny, core/scripts.py: .js)
+#    bash      — WSL / Git Bash / Linux  (opcjonalny, .sh scripts)
+#    powershell / pwsh  — Windows  (core/scripts.py: .ps1)
+#
+#  Stdlib używane przez core (wszystkie w Pythonie 3.10+):
+#    os, sys, re, json, time, shutil, socket, subprocess, threading,
+#    importlib, pkgutil, platform, hashlib, zipfile, tarfile, tempfile,
+#    fnmatch, io, shlex, contextlib, dataclasses, typing, urllib,
+#    datetime, ctypes, math, hmac, stat, webbrowser, resource (Linux),
+#    tkinter (gui/app.py — wbudowany w CPython, może wymagać python3-tk)
+#
+# ============================================================================
+
+
+# ── [B] WYMAGANE ZALEŻNOŚCI PIP ──────────────────────────────────────────────
+#
+#  Poniższe pakiety są używane przez moduły core i są wymagane
+#  do pełnej funkcjonalności TerminalX.
+#  Instalowane automatycznie przez: install libs
+#
+
+# --- Procesy i system ---------------------------------------------------------
+
+# psutil — wymagany przez core/runner.py (kill drzewa procesów, suspend/resume,
+#           priorytety, limity RAM/CPU, jobs top) oraz core/debugger.py
+#           (statystyki pamięci procesu). Moduły mają fallback bez psutil,
+#           ale funkcje run --top, run --kill, run --priority nie działają.
+psutil>=5.9.0
+
+# --- Terminal i UX ------------------------------------------------------------
+
+# colorama — inicjalizacja ANSI na starszych terminalach Windows (ConHost <Win10).
+#            core/ansi.py i core/colors.py używają ctypes natywnie;
+#            colorama jako fallback dla środowisk bez VT processing.
+colorama>=0.4.6
+
+# ============================================================================
+
+
+# ── [C] OPCJONALNE ROZSZERZENIA PIP ──────────────────────────────────────────
+#
+#  Odblokuj komentarz (#) przy pakiecie, aby go włączyć.
+#  Następnie uruchom: install libs
+#
+
+# --- Terminal i UX -----------------------------------------------------------
+
+# prompt_toolkit>=3.0.0
+#   Zaawansowane uzupełnianie tab, historia inline, multi-line input.
+#   Zastępuje wbudowany input() w core/__init__.py.
+
+# rich>=13.0.0
+#   Bogaty rendering tabel, markdown, progress bars dla modułów core.
+#   Szczególnie przydatne w core/task.py, core/pkg.py, core/search.py.
+
+# pygments>=2.17.0
+#   Podświetlanie składni kodu w core/scripts.py i core/tools.py.
+
+# --- Sieć --------------------------------------------------------------------
+
+# requests>=2.31.0
+#   Wygodniejsze HTTP niż urllib (timeout, session, retries).
+#   Zastępuje urllib.request w core/net.py i core/pkg.py.
+
+# dnspython>=2.6.0
+#   Rozszerzone zapytania DNS (MX, TXT, AAAA) dla core/net.py.
+
+# paramiko>=3.4.0
+#   SSH client — przyszły moduł net ssh / sftp.
+
+# --- Pliki i dane ------------------------------------------------------------
+
+# chardet>=5.2.0
+#   Automatyczne wykrywanie kodowania plików w core/scripts.py.
+
+# send2trash>=1.8.3
+#   Cross-platform trash (Windows Kosz, macOS Trash, freedesktop).
+#   Wzmacnia core/trash.py na nie-Windows platformach.
+
+# watchdog>=4.0.0
+#   Monitorowanie zmian w katalogach — rozszerzenie core/defender.py.
+
+# --- Windows-only (odblokuj tylko na Windows) --------------------------------
+
+# pywin32>=306
+#   Zaawansowane API Win32 (rejestry, usługi, COM).
+#   Wzmacnia core/defender.py. Po instalacji uruchom:
+#   python Scripts/pywin32_postinstall.py -install
+
+# wmi>=1.5.1
+#   Zapytania WMI (hardware info, usługi, eventy). Uzupełnienie pywin32.
+
+# ============================================================================
+
+
+# ── [D] NARZĘDZIA BUILD / DEV ────────────────────────────────────────────────
+#   Instaluj tylko w środowisku developerskim — nie w produkcji.
+#
+
+# pyinstaller>=6.0.0   # kompilacja do standalone EXE
+# nuitka>=2.0.0        # alternatywna kompilacja C → .exe
+# black>=24.0.0        # formatowanie kodu
+# flake8>=7.0.0        # linting
+# mypy>=1.8.0          # type checking
+# pytest>=8.0.0        # testy jednostkowe
+
+# ============================================================================

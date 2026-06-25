@@ -1,0 +1,8 @@
+{
+  "name": "edit.exe",
+  "description": "Edytor tekstu MS-DOS (Edit) — konsolowa aplikacja x86-64 PE32+. Uruchamiany w osobnym oknie terminala.",
+  "tags": ["editor", "text", "console", "dos"],
+  "author": "Microsoft",
+  "version": "",
+  "added": "2026-06-25"
+}

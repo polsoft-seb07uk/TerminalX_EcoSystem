@@ -1,0 +1,160 @@
+============================================================
+  TerminalX EcoSystem — Lokalizacje folderów i plików
+  polsoft.ITS(TM) Group
+============================================================
+
+Legenda:
+  ROOT_DIR   = folder główny EcoSystem (tam gdzie TerminalX.py)
+  HOME       = katalog domowy użytkownika (~)
+  __file__   = lokalizacja konkretnego modułu (.py)
+
+------------------------------------------------------------
+  STRUKTURA GŁÓWNA (ROOT_DIR)
+------------------------------------------------------------
+
+  ROOT_DIR\                         — katalog główny EcoSystem
+  ROOT_DIR\TerminalX.py             — punkt wejścia
+  ROOT_DIR\core\                    — moduły systemowe
+  ROOT_DIR\modules\                 — moduły użytkownika
+  ROOT_DIR\plugins\                 — pluginy
+  ROOT_DIR\lang\                    — pliki lokalizacji (pl.py, en.py)
+  ROOT_DIR\libs\                    — biblioteki zewnętrzne
+  ROOT_DIR\libs\pip\                — paczki pip (lokalny cache)
+  ROOT_DIR\libs\requirements.txt    — lista wymaganych pakietów
+  ROOT_DIR\scripts\                 — skrypty użytkownika
+  ROOT_DIR\scripts\logs\            — logi wykonania skryptów (runner.py)
+  ROOT_DIR\docs\                    — dokumentacja
+  ROOT_DIR\docs\reports\            — raporty systemowe (monitor, analyser)
+  ROOT_DIR\gui\                     — aplikacja GUI
+  ROOT_DIR\gui\app.py               — główne okno GUI
+  ROOT_DIR\tests\                   — testy jednostkowe
+  ROOT_DIR\tests\test_core.py       — testy core
+  ROOT_DIR\tests\test_i18n.py       — testy lokalizacji
+  ROOT_DIR\tests\test_terminalx.py  — testy terminala
+
+------------------------------------------------------------
+  CACHE (.cache\) — ROOT_DIR\.cache\
+------------------------------------------------------------
+
+  ROOT_DIR\.cache\                          — główny katalog cache
+  ROOT_DIR\.cache\global\config.json        — konfiguracja globalna
+  ROOT_DIR\.cache\global\history.json       — historia komend
+  ROOT_DIR\.cache\global\aliases.json       — aliasy
+  ROOT_DIR\.cache\global\lang.json          — wybór języka
+  ROOT_DIR\.cache\global\notify_history.json— historia powiadomień
+  ROOT_DIR\.cache\global\task_log.json      — log zadań
+  ROOT_DIR\.cache\global\_index.json        — indeks globalny
+  ROOT_DIR\.cache\analyser\                 — cache analizatora
+  ROOT_DIR\.cache\analyser\last_report.json — ostatni raport analizy
+  ROOT_DIR\.cache\defender\                 — cache defender
+  ROOT_DIR\.cache\defender\events.json      — log zdarzeń defender
+  ROOT_DIR\.cache\defender\baseline.json    — baseline skrótów SHA-256
+  ROOT_DIR\.cache\docs\                     — cache dokumentacji
+  ROOT_DIR\.cache\docs\index.json           — indeks docs
+  ROOT_DIR\.cache\math\                     — cache obliczeń matematycznych
+  ROOT_DIR\.cache\pkg\                      — cache menedżera pakietów
+  ROOT_DIR\.cache\pkg\installed.json        — lista zainstalowanych paczek
+  ROOT_DIR\.cache\pkg\history.json          — historia instalacji
+  ROOT_DIR\.cache\pkg\tmp\                  — pliki tymczasowe pkg
+  ROOT_DIR\.cache\scripts\                  — cache skryptów
+  ROOT_DIR\.cache\scripts\_index.json       — indeks skryptów
+  ROOT_DIR\.cache\tools\                    — cache narzędzi
+  ROOT_DIR\.cache\tools\_index.json         — indeks narzędzi
+  ROOT_DIR\.cache\sha256\                   — cache skrótów SHA-256
+  ROOT_DIR\.cache\vdrive\                   — stan montowań dysków wirtualnych (vdrive.py)
+
+------------------------------------------------------------
+  KOSZ I KWARANTANNA
+------------------------------------------------------------
+
+  ROOT_DIR\.trash\                   — kosz (trash.py)
+  ROOT_DIR\.quarantine\              — kwarantanna plików (defender.py)
+
+------------------------------------------------------------
+  MODUŁ: video_downloader.py
+------------------------------------------------------------
+
+  C:\.polsoft\download\media\        — domyślny folder pobieranych plików
+  ROOT_DIR\core\.video_dwl_queue.json— kolejka pobierania (plik tymczasowy)
+  HOME\.video_dwl_history.json       — historia pobrań (~/.video_dwl_history.json)
+
+------------------------------------------------------------
+  MODUŁ: ssh.py
+------------------------------------------------------------
+
+  HOME\.crossterm\ssh\               — klucze SSH EcoSystem (~/.crossterm/ssh/)
+  HOME\.ssh\                         — systemowe klucze SSH (~/.ssh/)
+  HOME\.ssh\known_hosts              — known_hosts SSH
+
+------------------------------------------------------------
+  MODUŁ: qr.py
+------------------------------------------------------------
+
+  HOME\.crossterm\qr_history.json    — historia kodów QR
+
+------------------------------------------------------------
+  MODUŁ: search.py
+------------------------------------------------------------
+
+  HOME\.crossterm\                   — katalog CrossTerm (indeks wyszukiwania)
+
+------------------------------------------------------------
+  MODUŁ: ai.py (modules\)
+------------------------------------------------------------
+
+  HOME\.crossterm\config.json        — konfiguracja AI (profile API)
+  HOME\.crossterm\ai\                — dane modułu AI (sesje, presety)
+
+------------------------------------------------------------
+  MODUŁ: virtual_env.py (modules\)
+------------------------------------------------------------
+
+  HOME\.crossterm\config.json        — konfiguracja venv (klucz "venv")
+  HOME\.crossterm\venv_config.json   — legacy config venv (migracja)
+  HOME\.crossterm\venv\              — środowiska wirtualne EcoSystem
+
+------------------------------------------------------------
+  MODUŁ: vdrive.py (core\) — wcześniej modules\vdrive_manager.py
+------------------------------------------------------------
+
+  ROOT_DIR\.cache\vdrive\                   — katalog główny dysków wirtualnych
+  ROOT_DIR\.cache\vdrive\.vdrive_mounts.json— rejestr aktywnych montowań
+  (Usunięto dyski wirtualne bez --wipe trafiają do ROOT_DIR\.trash\ — trash.py)
+
+------------------------------------------------------------
+  MODUŁ: dosbox\ (modules\dosbox\)
+------------------------------------------------------------
+
+  ROOT_DIR\modules\dosbox\              — katalog modułu DOSBox
+  ROOT_DIR\modules\dosbox\bin\DOSBox.exe— plik wykonywalny DOSBox
+  ROOT_DIR\modules\dosbox\dosbox.conf   — konfiguracja DOSBox
+  ROOT_DIR\modules\dosbox\programs.json — lista zapisanych gier/programów
+
+------------------------------------------------------------
+  MODUŁ: wifi.py
+------------------------------------------------------------
+
+  %TEMP%\_cterm_wifi_profile.xml     — tymczasowy profil Wi-Fi (Windows)
+
+------------------------------------------------------------
+  MODUŁ: qr.py — ścieżki pip site-packages (Windows, fallback)
+------------------------------------------------------------
+
+  %APPDATA%\Python\Python312\site-packages\
+  %LOCALAPPDATA%\Programs\Python\Python312\Lib\site-packages\
+
+------------------------------------------------------------
+  MODUŁ: runner.py — logi skryptów
+------------------------------------------------------------
+
+  ROOT_DIR\scripts\logs\             — katalog logów uruchamianych skryptów
+                                       (DEFAULT_LOG_DIR = "logs", względem scripts\)
+
+------------------------------------------------------------
+  MODUŁ: monitor.py / admin.py — Linux (tylko odczyt)
+------------------------------------------------------------
+
+  /sys/class/drm/                    — urządzenia GPU (Linux)
+  /sys/class/thermal/                — czujniki temperatury (Linux)
+
+============================================================
